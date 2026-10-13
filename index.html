@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101713">
+  <meta name="description" content="FirstClass Exotics — product information and contact links.">
+  <title>FirstClass Exotics | Official Storefront</title>
+  <style>
+    :root {
+      --bg: #0d120f; --panel: #151d18; --panel2: #1b261f;
+      --text: #f4f7f4; --muted: #aab8ad; --green: #a8e6b7;
+      --line: rgba(255,255,255,.11); --gold: #d8c28a;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; }
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: auto; }
+    header { position: sticky; top: 0; z-index: 5; background: rgba(13,18,15,.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); }
+    .nav { display:flex; align-items:center; justify-content:space-between; min-height:76px; gap:20px; }
+    .brand { display:flex; align-items:center; gap:12px; text-decoration:none; font-weight:850; letter-spacing:.08em; }
+    .mark { display:grid; place-items:center; width:40px; height:40px; border:1px solid rgba(168,230,183,.55); border-radius:12px; color:var(--green); font-size:20px; }
+    .brand small { display:block; color:var(--muted); font-size:10px; letter-spacing:.25em; font-weight:650; }
+    nav { display:flex; align-items:center; gap:24px; }
+    nav a { color:var(--muted); text-decoration:none; font-size:14px; }
+    nav a:hover { color:var(--green); }
+    .button { display:inline-flex; align-items:center; justify-content:center; gap:9px; background:var(--green); color:#102016; padding:12px 18px; border-radius:999px; text-decoration:none; font-weight:800; font-size:14px; border:0; cursor:pointer; }
+    .button:hover { filter:brightness(1.06); transform:translateY(-1px); }
+    .button.secondary { color:var(--text); background:transparent; border:1px solid var(--line); }
+    .hero { padding:86px 0 76px; overflow:hidden; position:relative; }
+    .hero:before { content:""; position:absolute; width:480px; height:480px; right:-100px; top:-140px; border-radius:50%; background:radial-gradient(circle,rgba(80,160,103,.22),transparent 68%); pointer-events:none; }
+    .eyebrow { color:var(--green); text-transform:uppercase; letter-spacing:.22em; font-size:11px; font-weight:850; }
+    h1 { font-size:clamp(44px,7vw,78px); line-height:1.02; letter-spacing:-.055em; max-width:780px; margin:18px 0 22px; }
+    h1 span { color:var(--green); }
+    .hero p { color:var(--muted); max-width:610px; font-size:18px; }
+    .hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:30px; }
+    .trust { display:flex; gap:24px; flex-wrap:wrap; color:var(--muted); font-size:12px; margin-top:35px; }
+    .trust span:before { content:"✦"; color:var(--gold); margin-right:8px; }
+    section { padding:66px 0; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:20px; margin-bottom:28px; }
+    h2 { margin:8px 0 0; font-size:clamp(30px,4vw,44px); line-height:1.1; letter-spacing:-.04em; }
+    .section-head p { color:var(--muted); max-width:430px; margin:0; font-size:14px; }
+    .products { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+    .product { background:linear-gradient(160deg,var(--panel2),var(--panel)); border:1px solid var(--line); border-radius:20px; padding:22px; min-height:245px; display:flex; flex-direction:column; transition:transform .2s,border-color .2s; }
+    .product:hover { transform:translateY(-4px); border-color:rgba(168,230,183,.45); }
+    .product-icon { width:52px; height:52px; display:grid; place-items:center; border-radius:15px; background:rgba(168,230,183,.09); color:var(--green); font-size:25px; margin-bottom:22px; }
+    .product h3 { margin:0 0 8px; font-size:20px; }
+    .product p { margin:0; color:var(--muted); font-size:13px; }
+    .product .foot { margin-top:auto; padding-top:24px; color:var(--green); font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
+    .notice { border:1px solid rgba(216,194,138,.35); background:rgba(216,194,138,.06); border-radius:16px; padding:18px 20px; color:#e9dfc5; font-size:13px; margin-top:20px; }
+    .contact-panel { background:linear-gradient(135deg,#1b2b20,#131a15 75%); border:1px solid var(--line); border-radius:28px; padding:clamp(25px,5vw,52px); display:grid; grid-template-columns:1.2fr .8fr; gap:36px; align-items:center; }
+    .contact-panel p { color:var(--muted); max-width:520px; }
+    .socials { display:grid; gap:12px; }
+    .social { display:flex; align-items:center; justify-content:space-between; gap:14px; padding:16px 18px; background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:15px; text-decoration:none; }
+    .social strong { display:block; }
+    .social small { color:var(--muted); }
+    .arrow { color:var(--green); font-size:22px; }
+    footer { padding:28px 0; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    .footer-row { display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; }
+    .age { position:fixed; inset:0; z-index:20; display:grid; place-items:center; background:rgba(5,9,6,.94); padding:20px; }
+    .age-card { width:min(440px,100%); text-align:center; background:var(--panel); border:1px solid var(--line); padding:32px; border-radius:24px; box-shadow:0 24px 90px #0008; }
+    .age-card h2 { font-size:28px; margin:12px 0; }
+    .age-card p { color:var(--muted); font-size:14px; }
+    .age-actions { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:22px; }
+    .smallprint { color:var(--muted); font-size:11px; }
+    @media (max-width:850px) { .products { grid-template-columns:repeat(2,1fr); } .contact-panel { grid-template-columns:1fr; } }
+    @media (max-width:560px) { .wrap { width:min(100% - 28px,1120px); } nav { gap:12px; } nav a:not(.button) { display:none; } .hero { padding:62px 0 54px; } .products { grid-template-columns:1fr; } .product { min-height:205px; } .section-head { display:block; } .section-head p { margin-top:14px; } }
+  </style>
+</head>
+<body>
+  <div class="age" id="ageGate" role="dialog" aria-modal="true" aria-labelledby="ageTitle">
+    <div class="age-card">
+      <div class="mark" style="margin:auto">FC</div>
+      <div class="eyebrow" style="margin-top:18px">FirstClass Exotics</div>
+      <h2 id="ageTitle">Please confirm your age</h2>
+      <p>This site may discuss age-restricted products. You must be of legal age in your jurisdiction to continue. Access does not mean any product is legal or available where you live.</p>
+      <div class="age-actions">
+        <button class="button" id="confirmAge">I meet the legal age requirement</button>
+        <a class="button secondary" href="https://www.google.com/">Leave site</a>
+      </div>
+      <p class="smallprint">Age confirmation is a basic website prompt, not identity verification.</p>
+    </div>
+  </div>
+
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="FirstClass Exotics home">
+        <span class="mark">FC</span><span>FIRSTCLASS<small>EXOTICS</small></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#products">Products</a><a href="#contact">Contact</a>
+        <a class="button" href="#contact">Get in touch ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">The FirstClass standard</div>
+        <h1>Quality first.<br><span>Always.</span></h1>
+        <p>Welcome to FirstClass Exotics. Explore our product categories and use our official social channels to ask questions about lawful, locally permitted offerings.</p>
+        <div class="hero-actions">
+          <a class="button" href="#products">Explore categories ↓</a>
+          <a class="button secondary" href="#contact">Connect with us</a>
+        </div>
+        <div class="trust"><span>Modern storefront</span><span>Direct contact</span><span>Mobile-friendly</span></div>
+      </div>
+    </section>
+
+    <section id="products">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">Browse the lineup</div><h2>Product categories</h2></div>
+          <p>Category information only. Specific products, pricing, availability, and eligibility must be confirmed through lawful, authorized channels.</p>
+        </div>
+        <div class="products">
+          <article class="product"><div class="product-icon" aria-hidden="true">✦</div><h3>Flower</h3><p>Category overview and general product information.</p><div class="foot">Ask for details ↗</div></article>
+          <article class="product"><div class="product-icon" aria-hidden="true">◈</div><h3>Concentrates</h3><p>Category overview for permitted concentrate products.</p><div class="foot">Ask for details ↗</div></article>
+          <article class="product"><div class="product-icon" aria-hidden="true">▧</div><h3>Edibles</h3><p>Category overview for locally legal, authorized products.</p><div class="foot">Ask for details ↗</div></article>
+          <article class="product"><div class="product-icon" aria-hidden="true">✺</div><h3>Shake</h3><p>Category overview and general product information.</p><div class="foot">Ask for details ↗</div></article>
+        </div>
+        <div class="notice"><strong>Important:</strong> This template does not process orders or payments. Do not use it to offer controlled or age-restricted products unless your business is properly licensed and the activity, advertising, and platform are lawful in your location. Follow all applicable age, packaging, labeling, and advertising requirements.</div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-panel">
+          <div>
+            <div class="eyebrow">Stay connected</div>
+            <h2>Connect with<br>FirstClass Exotics.</h2>
+            <p>Follow our social pages for business updates. Use the official profile links to contact us and confirm what information we can lawfully provide in your location.</p>
+            <p class="smallprint">Instagram and TikTok profile handles are set to <strong>@unixwyd</strong>. If your profile URLs differ, update the links in index.html.</p>
+          </div>
+          <div class="socials">
+            <a class="social" href="https://www.instagram.com/unixwyd/" target="_blank" rel="noopener noreferrer">
+              <span><strong>Instagram</strong><small>@unixwyd</small></span><span class="arrow">↗</span>
+            </a>
+            <a class="social" href="https://www.tiktok.com/@unixwyd" target="_blank" rel="noopener noreferrer">
+              <span><strong>TikTok</strong><small>@unixwyd</small></span><span class="arrow">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <span>© <span id="year"></span> FirstClass Exotics. All rights reserved.</span>
+      <span>For lawful, age-appropriate informational use only.</span>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('confirmAge').addEventListener('click', function () {
+      document.getElementById('ageGate').hidden = true;
+    });
+  </script>
+</body>
+</html>
